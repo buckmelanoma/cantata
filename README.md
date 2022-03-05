@@ -3,7 +3,7 @@ cantata-next
 
 cantata-next is a fork of the now-defunct cantata project.  This fork aims to integrate well with KDE on Linux.  Windows and macOS are no longer suported.
 
-![ScreenShot](screenshots/mainwindow.png)
+![screenshot](main.png)
 
 
 A graphical (Qt5) client for MPD, supporting the following features:
