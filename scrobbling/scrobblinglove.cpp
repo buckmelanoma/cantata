@@ -29,8 +29,8 @@
 ScrobblingLove::ScrobblingLove(QWidget *p)
     : ToolButton(p)
 {
-    love = MonoIcon::icon(FontAwesome::hearto, Utils::monoIconColor());
-    loved = MonoIcon::icon(FontAwesome::heart, Utils::monoIconColor());
+    love = QIcon::fromTheme("last-fm");
+    loved = QIcon::fromTheme("love");
     setIcon(love);
     connect(Scrobbler::self(), SIGNAL(loveEnabled(bool)), SLOT(setVisible(bool)));
     connect(Scrobbler::self(), SIGNAL(songChanged(bool)), SLOT(songChanged(bool)));

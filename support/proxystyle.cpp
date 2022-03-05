@@ -43,13 +43,13 @@ ProxyStyle::ProxyStyle(int modView)
     icons.insert(SP_MessageBoxCritical, MonoIcon::icon(FontAwesome::timescircleo, MonoIcon::constRed, MonoIcon::constRed));
     icons.insert(SP_MessageBoxWarning, MonoIcon::icon(FontAwesome::exclamationtriangle, QColor(0xff, 0x99, 0x00), QColor(0xff, 0x99, 0x00)));
     icons.insert(SP_MessageBoxQuestion, MonoIcon::icon(FontAwesome::questioncircle, QColor(0x1a, 0x8c, 0xff), QColor(0x1a, 0x8c, 0xff)));
-    icons.insert(SP_MessageBoxInformation, MonoIcon::icon(FontAwesome::infocircle, QColor(0x1a, 0x8c, 0xff), QColor(0x1a, 0x8c, 0xff)));
+    icons.insert(SP_MessageBoxInformation, QIcon::fromTheme("dialog-information"));
 
     QColor monoCol = Utils::monoIconColor();
-    icons.insert(SP_DialogCancelButton, MonoIcon::icon(FontAwesome::ban, monoCol, monoCol));
+    icons.insert(SP_DialogCancelButton, QIcon::fromTheme("dialog-close"));
     icons.insert(SP_DialogHelpButton, MonoIcon::icon(FontAwesome::lifering, monoCol, monoCol));
-    icons.insert(SP_DialogOpenButton, MonoIcon::icon(FontAwesome::foldero, monoCol, monoCol));
-    icons.insert(SP_DialogSaveButton, MonoIcon::icon(FontAwesome::save, monoCol, monoCol));
+    icons.insert(SP_DialogOpenButton, QIcon::fromTheme("folder-open"));
+    icons.insert(SP_DialogSaveButton, QIcon::fromTheme("save"));
     icons.insert(SP_DialogCloseButton, MonoIcon::icon(FontAwesome::close, MonoIcon::constRed, MonoIcon::constRed));
     icons.insert(SP_DialogApplyButton, MonoIcon::icon(FontAwesome::check, monoCol, monoCol));
     icons.insert(SP_DialogResetButton, MonoIcon::icon(FontAwesome::undo, monoCol, monoCol));

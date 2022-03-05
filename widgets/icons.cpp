@@ -47,9 +47,9 @@ Icons::Icons()
 {
     QColor stdColor=Utils::monoIconColor();
 
-    singleIcon=MonoIcon::icon(FontAwesome::ex_one, stdColor);
-    consumeIcon=MonoIcon::icon(":consume.svg", stdColor);
-    menuIcon=MonoIcon::icon(FontAwesome::bars, stdColor);
+    singleIcon=QIcon::fromTheme("media-repeat-single");
+    consumeIcon=QIcon::fromTheme("pacman");
+    menuIcon=QIcon::fromTheme("application-menu");
 
     QString iconFile=QString(CANTATA_SYS_ICONS_DIR+"stream.png");
     if (QFile::exists(iconFile)) {
@@ -59,13 +59,13 @@ Icons::Icons()
         streamIcon=MonoIcon::icon(FontAwesome::globe, stdColor);
     }
     podcastIcon=MonoIcon::icon(FontAwesome::podcast, stdColor);
-    repeatIcon=MonoIcon::icon(FontAwesome::refresh, stdColor);
-    shuffleIcon=MonoIcon::icon(FontAwesome::random, stdColor);
+    repeatIcon=QIcon::fromTheme("media-playlist-repeat");
+    shuffleIcon=QIcon::fromTheme("media-playlist-shuffle");
     albumIconSmall.addFile(":album32.svg");
     albumIconLarge.addFile(":album.svg");
     albumMonoIcon=MonoIcon::icon(":mono-album.svg", stdColor);
-    artistIcon=MonoIcon::icon(":artist.svg", stdColor);
-    genreIcon=MonoIcon::icon(":genre.svg", stdColor);
+    artistIcon=QIcon::fromTheme("view-media-artist");
+    genreIcon=QIcon::fromTheme("view-media-genre");
     #if defined Q_OS_MAC || defined Q_OS_WIN
     appIcon.addFile(":cantata.svg");
     appIcon.addFile(":cantata16.png");
@@ -79,9 +79,9 @@ Icons::Icons()
     appIcon=QIcon::fromTheme("cantata");
     #endif
 
-    replacePlayQueueIcon=MonoIcon::icon(FontAwesome::play, stdColor);
-    appendToPlayQueueIcon=MonoIcon::icon(FontAwesome::plus, stdColor);
-    centrePlayQueueOnTrackIcon=MonoIcon::icon(Qt::RightToLeft==QApplication::layoutDirection() ? FontAwesome::chevronleft : FontAwesome::chevronright, stdColor);
+    replacePlayQueueIcon=QIcon::fromTheme("media-playback-start");
+    appendToPlayQueueIcon=QIcon::fromTheme("add");
+    centrePlayQueueOnTrackIcon=QIcon::fromTheme("kdenlive-align-vert");
     savePlayQueueIcon=MonoIcon::icon(FontAwesome::save, stdColor);
     cutIcon=MonoIcon::icon(FontAwesome::remove, MonoIcon::constRed, MonoIcon::constRed);
     addNewItemIcon=MonoIcon::icon(FontAwesome::plussquare, stdColor);
@@ -90,21 +90,21 @@ Icons::Icons()
     searchIcon=MonoIcon::icon(FontAwesome::search, stdColor);
     addToFavouritesIcon=MonoIcon::icon(FontAwesome::heart, MonoIcon::constRed, MonoIcon::constRed);
     reloadIcon=MonoIcon::icon(FontAwesome::repeat, stdColor);
-    configureIcon=MonoIcon::icon(FontAwesome::cogs, stdColor);
+    configureIcon=MonoIcon::icon(FontAwesome::gear, stdColor);
     connectIcon=MonoIcon::icon(FontAwesome::plug, stdColor);
     disconnectIcon=MonoIcon::icon(FontAwesome::eject, stdColor);
     downloadIcon=MonoIcon::icon(FontAwesome::download, stdColor);
-    removeIcon=MonoIcon::icon(FontAwesome::minussquare, MonoIcon::constRed, MonoIcon::constRed);
-    minusIcon=MonoIcon::icon(FontAwesome::minus, MonoIcon::constRed, MonoIcon::constRed);
-    addIcon=MonoIcon::icon(FontAwesome::plus, stdColor);
+    removeIcon=QIcon::fromTheme("remove");
+    minusIcon=QIcon::fromTheme("remove");
+    addIcon=QIcon::fromTheme("edit-add");
     addBookmarkIcon=MonoIcon::icon(FontAwesome::bookmark, stdColor);
-    audioListIcon=MonoIcon::icon(FontAwesome::music, stdColor);
+    audioListIcon=QIcon::fromTheme("audio-card-symbolic");
     playlistListIcon=MonoIcon::icon(FontAwesome::list, stdColor);
     smartPlaylistIcon=MonoIcon::icon(FontAwesome::graduationcap, stdColor);
     rssListIcon=MonoIcon::icon(FontAwesome::rss, stdColor);
     savedRssListIcon=MonoIcon::icon(FontAwesome::rsssquare, stdColor);
     clockIcon=MonoIcon::icon(FontAwesome::clocko, stdColor);
-    folderListIcon=MonoIcon::icon(FontAwesome::foldero, stdColor);
+    folderListIcon=QIcon::fromTheme("folder-open");
     refreshIcon=MonoIcon::icon(FontAwesome::refresh, stdColor);
     streamListIcon=audioListIcon;
     streamCategoryIcon=folderListIcon;
@@ -126,11 +126,11 @@ void Icons::initSidebarIcons()
     QColor iconCol=Utils::monoIconColor();
     #endif
     playqueueIcon=MonoIcon::icon(QLatin1String(":sidebar-playqueue"), iconCol);
-    libraryIcon=MonoIcon::icon(QLatin1String(":sidebar-library"), iconCol);
-    foldersIcon=MonoIcon::icon(QLatin1String(":sidebar-folders"), iconCol);
-    playlistsIcon=MonoIcon::icon(QLatin1String(":sidebar-playlists"), iconCol);
-    onlineIcon=MonoIcon::icon(QLatin1String(":sidebar-online"), iconCol);
-    infoSidebarIcon=MonoIcon::icon(QLatin1String(":sidebar-info"), iconCol);
+    libraryIcon=QIcon::fromTheme("library-music");
+    foldersIcon=QIcon::fromTheme("folder");
+    playlistsIcon=QIcon::fromTheme("media-playlist-play");
+    onlineIcon=QIcon::fromTheme("internet-amarok");
+    infoSidebarIcon=QIcon::fromTheme("dialog-information");
     #ifdef ENABLE_DEVICES_SUPPORT
     devicesIcon=MonoIcon::icon(QLatin1String(":sidebar-devices"), iconCol);
     #endif
@@ -142,12 +142,12 @@ void Icons::initToolbarIcons(const QColor &toolbarText)
     bool rtl=QApplication::isRightToLeft();
 
     toolbarPrevIcon=MonoIcon::icon(QLatin1String(rtl ? ":media-next" : ":media-prev"), toolbarText);
-    toolbarPlayIcon=MonoIcon::icon(QLatin1String(rtl ? ":media-play-rtl" : ":media-play"), toolbarText);
+    toolbarPlayIcon=QIcon::fromTheme("media-playback-start");
     toolbarPauseIcon=MonoIcon::icon(QLatin1String(":media-pause"), toolbarText);
     toolbarStopIcon=MonoIcon::icon(QLatin1String(":media-stop"), toolbarText);
     toolbarNextIcon=MonoIcon::icon(QLatin1String(rtl ? ":media-prev" : ":media-next"), toolbarText);
-    infoIcon=MonoIcon::icon(QLatin1String(":sidebar-info"), toolbarText);
-    toolbarMenuIcon=MonoIcon::icon(FontAwesome::bars, toolbarText);
+    infoIcon=QIcon::fromTheme("dialog-information");
+    toolbarMenuIcon=QIcon::fromTheme("application-menu");
 }
 
 const QIcon & Icons::albumIcon(int size, bool mono) const

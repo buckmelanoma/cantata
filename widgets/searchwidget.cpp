@@ -79,7 +79,7 @@ SearchWidget::SearchWidget(QWidget *p, int extraSpace)
         l->addWidget(closeButton);
     }
 
-    closeButton->setIcon(MonoIcon::icon(FontAwesome::close, MonoIcon::constRed, MonoIcon::constRed));
+    closeButton->setIcon(QIcon::fromTheme("cancel"));
     Icon::init(closeButton);
     connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
     connect(edit, SIGNAL(textChanged(QString)), SIGNAL(textChanged(QString)));

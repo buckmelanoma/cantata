@@ -277,6 +277,7 @@ NowPlayingWidget::NowPlayingWidget(QWidget *p)
     QFont f=track->font();
     QFont small=Utils::smallFont(f);
     f.setBold(true);
+    f.setItalic(true);
     track->setFont(f);
     artist->setFont(small);
     time->setFont(small);

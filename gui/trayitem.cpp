@@ -171,7 +171,7 @@ void TrayItem::setup()
     QIcon icon;
     icon.addFile(CANTATA_SYS_ICONS_DIR+"cantata.png");
     #else
-    QIcon icon=QIcon::fromTheme(Utils::Gnome==Utils::currentDe() ? "cantata-symbolic" : "cantata");
+    QIcon icon=QIcon::fromTheme("sonata");
     // Bug: 660 If installed to non-standard folder, QIcon::fromTheme does not seem to find icon. Therefore
     // add icon files here...
     if (icon.isNull()) {

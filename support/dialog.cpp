@@ -117,7 +117,7 @@ static QIcon monoIcon(const GuiItem &i)
 
 namespace StdGuiItem {
 GuiItem ok() { return GuiItem(QObject::tr("&OK"), FontAwesome::check); }
-GuiItem cancel() { return GuiItem(QObject::tr("&Cancel"), FontAwesome::ban); }
+GuiItem cancel() { return GuiItem(QObject::tr("&Cancel"), FontAwesome::close); }
 GuiItem yes() { return GuiItem(QObject::tr("&Yes"), FontAwesome::check); }
 GuiItem no() { return GuiItem(QObject::tr("&No"), FontAwesome::times, true); }
 GuiItem discard() { return GuiItem(QObject::tr("&Discard"), FontAwesome::trash, true); }

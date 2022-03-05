@@ -800,12 +800,12 @@ QVariant PlayQueueModel::data(const QModelIndex &index, int role) const
         if (id==currentSongId) {
             switch (mpdState) {
             case MPDState_Inactive:
-            case MPDState_Stopped: return MonoIcon::icon(FontAwesome::stop, Utils::monoIconColor());
-            case MPDState_Playing: return MonoIcon::icon(stopAfterCurrent ? FontAwesome::playcircle : FontAwesome::play, Utils::monoIconColor());
-            case MPDState_Paused:  return MonoIcon::icon(FontAwesome::pause, Utils::monoIconColor());
+            case MPDState_Stopped: return QIcon::fromTheme("media-playback-stop");
+            case MPDState_Playing: return QIcon::fromTheme(stopAfterCurrent ? "media-playback-playing" : "media-playback-start");
+            case MPDState_Paused:  return QIcon::fromTheme("media-playback-pause");
             }
         } else if (-1!=id && id==stopAfterTrackId) {
-            return MonoIcon::icon(FontAwesome::stop, Utils::monoIconColor());
+            return QIcon::fromTheme("media-playback-stop");
         }
         break;
     }

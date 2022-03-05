@@ -40,8 +40,8 @@ MpdBrowsePage::MpdBrowsePage(QWidget *p)
     : SinglePageWidget(p)
     , model(this)
 {
-    QColor col=Utils::monoIconColor();
-    browseAction = new Action(MonoIcon::icon(FontAwesome::folderopen, col), tr("Open In File Manager"), this);
+    //QColor col=Utils::monoIconColor();
+    browseAction = new Action(QIcon::fromTheme("folder-open"), tr("Open In File Manager"), this);
     connect(view, SIGNAL(itemsSelected(bool)), this, SLOT(controlActions()));
     connect(view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(itemDoubleClicked(const QModelIndex &)));
     connect(view, SIGNAL(headerClicked(int)), SLOT(headerClicked(int)));

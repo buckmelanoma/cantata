@@ -62,7 +62,7 @@ public:
         QColor col(mainText->palette().windowText().color());
         subText->setStyleSheet(QString("QLabel{color:rgba(%1, %2, %3, 0.5)}").arg(col.red()).arg(col.green()).arg(col.blue()));
 
-        icon->setFixedSize(size, size);
+        //icon->setFixedSize(size, size);
         layout->addWidget(icon, 0, 0, 2, 1);
         layout->addItem(new QSpacerItem(Utils::layoutSpacing(this), 2, QSizePolicy::Fixed, QSizePolicy::Fixed), 0, 1);
         layout->addWidget(mainText, 0, 2, 1, 1);

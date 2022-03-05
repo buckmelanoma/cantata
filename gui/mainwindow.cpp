@@ -261,10 +261,10 @@ MainWindow::MainWindow(QWidget *parent)
     prefAction=ActionCollection::get()->createAction("configure", Utils::KDE==Utils::currentDe() ? tr("Configure Cantata...") : tr("Preferences..."),
                                                      Icons::self()->configureIcon);
     connect(prefAction, SIGNAL(triggered()),this, SLOT(showPreferencesDialog()));
-    quitAction = ActionCollection::get()->createAction("quit", tr("Quit"), MonoIcon::icon(FontAwesome::poweroff, MonoIcon::constRed, MonoIcon::constRed));
+    quitAction = ActionCollection::get()->createAction("quit", tr("Quit"), QIcon::fromTheme("exit"));
     connect(quitAction, SIGNAL(triggered()), this, SLOT(quit()));
     quitAction->setShortcut(QKeySequence::Quit);
-    Action *aboutAction=ActionCollection::get()->createAction("about", tr("About Cantata..."), Icons::self()->appIcon);
+    Action *aboutAction=ActionCollection::get()->createAction("about", tr("About Cantata..."), QIcon::fromTheme("help-about"));
     connect(aboutAction, SIGNAL(triggered()),this, SLOT(showAboutDialog()));
     #ifdef Q_OS_MAC
     prefAction->setMenuRole(QAction::PreferencesRole);
@@ -273,17 +273,18 @@ MainWindow::MainWindow(QWidget *parent)
     #endif
     restoreAction = new Action(tr("Show Window"), this);
     connect(restoreAction, SIGNAL(triggered()), this, SLOT(restoreWindow()));
+    restoreAction->setIcon(QIcon::fromTheme("window"));
 
-    serverInfoAction=ActionCollection::get()->createAction("mpdinfo", tr("Server information..."), MonoIcon::icon(FontAwesome::server, iconCol));
+    serverInfoAction=ActionCollection::get()->createAction("mpdinfo", tr("Server information..."), QIcon::fromTheme("network-server"));
     connect(serverInfoAction, SIGNAL(triggered()),this, SLOT(showServerInfo()));
     serverInfoAction->setEnabled(Settings::self()->firstRun());
-    refreshDbAction = ActionCollection::get()->createAction("refresh", tr("Refresh Database"), Icons::self()->refreshIcon);
+    refreshDbAction = ActionCollection::get()->createAction("refresh", tr("Refresh Database"), QIcon::fromTheme("view-refresh"));
     doDbRefreshAction = new Action(refreshDbAction->icon(), tr("Refresh"), this);
     refreshDbAction->setEnabled(false);
     connectAction = new Action(Icons::self()->connectIcon, tr("Connect"), this);
-    connectionsAction = new Action(MonoIcon::icon(FontAwesome::server, iconCol), tr("Collection"), this);
-    partitionsAction = new Action(MonoIcon::icon(FontAwesome::columns, iconCol), tr("Partitions"), this);
-    outputsAction = new Action(MonoIcon::icon(FontAwesome::volumeup, iconCol), tr("Outputs"), this);
+    connectionsAction = new Action(QIcon::fromTheme("library-music"), tr("Collection"), this);
+    partitionsAction = new Action(QIcon::fromTheme("split"), tr("Partitions"), this);
+    outputsAction = new Action(QIcon::fromTheme("audio-speakers"), tr("Outputs"), this);
     stopAfterTrackAction = ActionCollection::get()->createAction("stopaftertrack", tr("Stop After Track"), Icons::self()->toolbarStopIcon);
 
     QList<int> seeks=QList<int>() << 5 << 30 << 60;
@@ -310,18 +311,18 @@ MainWindow::MainWindow(QWidget *parent)
     copyToDeviceAction->setMenu(DevicesModel::self()->menu()->duplicate(nullptr));
     #endif
     cropPlayQueueAction = ActionCollection::get()->createAction("cropplaylist", tr("Crop Others"));
-    addStreamToPlayQueueAction = ActionCollection::get()->createAction("addstreamtoplayqueue", tr("Add Stream URL"));
-    addLocalFilesToPlayQueueAction = ActionCollection::get()->createAction("addlocalfiles", tr("Add Local Files"));
-    QIcon clearIcon = MonoIcon::icon(FontAwesome::times, MonoIcon::constRed, MonoIcon::constRed);
+    addStreamToPlayQueueAction = ActionCollection::get()->createAction("addstreamtoplayqueue", tr("Add Stream URL"), QIcon::fromTheme("edit-link"));
+    addLocalFilesToPlayQueueAction = ActionCollection::get()->createAction("addlocalfiles", tr("Add Local Files"), QIcon::fromTheme("add-folder-to-archive"));
+    QIcon clearIcon = QIcon::fromTheme("edit-clear-list");
     clearPlayQueueAction = ActionCollection::get()->createAction("clearplaylist", tr("Clear"), clearIcon);
     clearPlayQueueAction->setShortcut(Qt::ControlModifier+Qt::Key_K);
     centerPlayQueueAction = ActionCollection::get()->createAction("centerplaylist", tr("Center On Current Track"), Icons::self()->centrePlayQueueOnTrackIcon);
-    expandInterfaceAction = ActionCollection::get()->createAction("expandinterface", tr("Expanded Interface"), MonoIcon::icon(FontAwesome::expand, iconCol));
+    expandInterfaceAction = ActionCollection::get()->createAction("expandinterface", tr("Expanded Interface"), QIcon::fromTheme("zoom-fit-height"));
     expandInterfaceAction->setCheckable(true);
     songInfoAction = ActionCollection::get()->createAction("showsonginfo", tr("Show Current Song Information"), Icons::self()->infoIcon);
     songInfoAction->setShortcut(Qt::Key_F12);
     songInfoAction->setCheckable(true);
-    fullScreenAction = ActionCollection::get()->createAction("fullScreen", tr("Full Screen"), MonoIcon::icon(FontAwesome::arrowsalt, iconCol));
+    fullScreenAction = ActionCollection::get()->createAction("fullScreen", tr("Full Screen"), QIcon::fromTheme("view-fullscreen"));
     #ifndef Q_OS_MAC
     fullScreenAction->setShortcut(Qt::Key_F11);
     #endif
@@ -608,7 +609,7 @@ MainWindow::MainWindow(QWidget *parent)
         #ifdef Q_OS_MAC
         menuButton->setVisible(false);
         #else
-        showMenubarAction = ActionCollection::get()->createAction("showmenubar", tr("Show Menubar"));
+        showMenubarAction = ActionCollection::get()->createAction("showmenubar", tr("Show Menubar"), QIcon::fromTheme("show-menu"));
         showMenubarAction->setShortcut(Qt::ControlModifier+Qt::Key_M);
         showMenubarAction->setCheckable(true);
         connect(showMenubarAction, SIGNAL(toggled(bool)), this, SLOT(toggleMenubar()));
@@ -628,7 +629,9 @@ MainWindow::MainWindow(QWidget *parent)
         menuBar()->addMenu(menu);
         menu=new QMenu(tr("&Edit"), this);
         addMenuAction(menu, PlayQueueModel::self()->undoAct());
+        PlayQueueModel::self()->undoAct()->setIcon(QIcon::fromTheme("edit-undo"));
         addMenuAction(menu, PlayQueueModel::self()->redoAct());
+        PlayQueueModel::self()->redoAct()->setIcon(QIcon::fromTheme("edit-redo"));
         menu->addSeparator();
         addMenuAction(menu, StdActions::self()->searchAction);
         addMenuAction(menu, searchPlayQueueAction);
@@ -653,11 +656,14 @@ MainWindow::MainWindow(QWidget *parent)
         menu=new QMenu(tr("&Queue"), this);
         addMenuAction(menu, clearPlayQueueAction);
         addMenuAction(menu, StdActions::self()->savePlayQueueAction);
+        StdActions::self()->savePlayQueueAction->setIcon(QIcon::fromTheme("document-save"));
         addMenuAction(menu, addStreamToPlayQueueAction);
         addMenuAction(menu, addLocalFilesToPlayQueueAction);
         menu->addSeparator();
         addMenuAction(menu, PlayQueueModel::self()->shuffleAct());
+        PlayQueueModel::self()->shuffleAct()->setIcon(QIcon::fromTheme("media-playlist-shuffle"));
         addMenuAction(menu, PlayQueueModel::self()->sortAct());
+        PlayQueueModel::self()->sortAct()->setIcon(QIcon::fromTheme("view-sort"));
         menuBar()->addMenu(menu);
         if (Utils::KDE==Utils::currentDe()) {
             menu=new QMenu(tr("&Settings"), this);
@@ -2865,6 +2871,11 @@ void MainWindow::controlView(bool forceUpdate)
             coverWidget->setEnabled(coverWidgetEnabled);
             stopTrackButton->setVisible(stopEnabled);
         }
+
+        // disable volume control
+        volumeSlider->setVisible(false);
+        volumeSliderSpacer->changeSize(-1,-1);
+        volumeSliderSpacera->changeSize(-1,-1);
 
         if (expandInterfaceAction->isChecked() && (responsiveSidebar || forceUpdate)) {
             if (!responsiveSidebar || width()>Utils::scaleForDpi(450)) {

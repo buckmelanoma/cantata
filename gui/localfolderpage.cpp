@@ -38,12 +38,12 @@ LocalFolderBrowsePage::LocalFolderBrowsePage(bool isHome, QWidget *p)
     : SinglePageWidget(p)
     , isHomeFolder(isHome)
 {
-    QColor col = Utils::monoIconColor();
+    //QColor col = Utils::monoIconColor();
     model = isHomeFolder
-            ? new LocalBrowseModel(QLatin1String("localbrowsehome"), tr("Home"), tr("Browse files in your home folder"), MonoIcon::icon(FontAwesome::home, col), this)
-            : new LocalBrowseModel(QLatin1String("localbrowseroot"), tr("Root"), tr("Browse files on your computer"), MonoIcon::icon(FontAwesome::hddo, col), this);
+            ? new LocalBrowseModel(QLatin1String("localbrowsehome"), tr("Home"), tr("Browse files in your home folder"), QIcon::fromTheme("folder-home"), this)
+            : new LocalBrowseModel(QLatin1String("localbrowseroot"), tr("Root"), tr("Browse files on your computer"), QIcon::fromTheme("drive-harddisk"), this);
     proxy = new FileSystemProxyModel(model);
-    browseAction = new Action(MonoIcon::icon(FontAwesome::folderopen, col), tr("Open In File Manager"), this);
+    browseAction = new Action(QIcon::fromTheme("folder-open"), tr("Open In File Manager"), this);
     connect(view, SIGNAL(itemsSelected(bool)), this, SLOT(controlActions()));
     connect(view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(itemDoubleClicked(const QModelIndex &)));
     connect(view, SIGNAL(headerClicked(int)), SLOT(headerClicked(int)));
@@ -52,7 +52,7 @@ LocalFolderBrowsePage::LocalFolderBrowsePage(bool isHome, QWidget *p)
     Configuration config(configGroup());
     view->load(config);
     MenuButton *menu=new MenuButton(this);
-    menu->addActions(createViewActions(QList<ItemView::Mode>() << ItemView::Mode_BasicTree << ItemView::Mode_SimpleTree
+    menu->addActions(createViewActions(QList<ItemView::Mode>() << ItemView::Mode_SimpleTree << ItemView::Mode_SimpleTree
                                                                << ItemView::Mode_DetailedTree));
     init(ReplacePlayQueue|AppendToPlayQueue, QList<QWidget *>() << menu);
 

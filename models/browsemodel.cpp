@@ -61,7 +61,7 @@ BrowseModel::BrowseModel(QObject *p)
     , enabled(false)
     , dbVersion(0)
 {
-    icn=MonoIcon::icon(FontAwesome::server, Utils::monoIconColor());
+    icn=QIcon::fromTheme("network-server");
     connect(this, SIGNAL(listFolder(QString)), MPDConnection::self(), SLOT(listFolder(QString)));
     folderIndex.insert(root->getPath(), root);
 }

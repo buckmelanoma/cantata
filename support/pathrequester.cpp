@@ -35,7 +35,7 @@ PathRequester::PathRequester(QWidget *parent)
     , dirMode(true)
 {
     if (icon.isNull()) {
-        icon = MonoIcon::icon(FontAwesome::foldero, Utils::monoIconColor());
+        icon = QIcon::fromTheme("folder-open");
     }
     QHBoxLayout *layout=new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
