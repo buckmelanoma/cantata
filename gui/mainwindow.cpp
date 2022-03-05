@@ -1128,7 +1128,7 @@ void MainWindow::mpdConnectionStateChanged(bool connected)
         MPDStatus dummyStatus;
         updateStatus(&dummyStatus);
     }
-    updateWindowTitle();
+    //updateWindowTitle();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -2018,7 +2018,7 @@ void MainWindow::updateStatus(MPDStatus * const status)
     }
 
     if (status->partition()!=lastPartition) {
-        updateWindowTitle();
+        //updateWindowTitle();
 
         for (QAction *act: partitionsAction->menu()->actions()) {
             if (act->isCheckable()) {
