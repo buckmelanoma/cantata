@@ -1,2 +1,5 @@
+-Replace fontawesome with QIcon::fromTheme
+-Restore native look for nowplaying QSlider
+-Remove devices support
+-Remove CD ripping
 -Remove Windows and macOS code
--Completely replace fontawesome with QIcon::fromTheme
