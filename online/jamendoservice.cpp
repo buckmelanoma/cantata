@@ -318,7 +318,7 @@ static JamendoService::Format toFormat(const QString &f)
 JamendoService::JamendoService(QObject *p)
     : OnlineDbService(new OnlineDb(constName, p), p)
 {
-    icn=MonoIcon::icon(FontAwesome::playcircleo, Utils::monoIconColor());
+    icn=QIcon::fromTheme("jamendo");
     useCovers(name());
     Configuration cfg(constName);
     format=toFormat(cfg.get("format", formatStr(FMT_MP3)));
