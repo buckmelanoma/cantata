@@ -98,7 +98,7 @@ StdActions::StdActions()
     appendToPlayQueueAndPlayAction->setSettingsText(QObject::tr("Append To Play Queue And Play"));
     insertAfterCurrentAction = ActionCollection::get()->createAction("insertintoplayqueue", QObject::tr("Insert After Current"));
     addRandomAlbumToPlayQueueAction = ActionCollection::get()->createAction("addrandomalbumtoplayqueue", QObject::tr("Append Random Album"));
-    replacePlayQueueAction = ActionCollection::get()->createAction("replaceplayqueue", QObject::tr("Play Now (And Replace Play Queue)"), Icons::self()->replacePlayQueueIcon);
+    replacePlayQueueAction = ActionCollection::get()->createAction("replaceplayqueue", QObject::tr("Play Now"), Icons::self()->replacePlayQueueIcon);
     savePlayQueueAction->setShortcut(Qt::ControlModifier+Qt::Key_S);
     appendToPlayQueueAction->setShortcut(Qt::ControlModifier+Qt::Key_P);
     replacePlayQueueAction->setShortcut(Qt::ControlModifier+Qt::Key_R);
