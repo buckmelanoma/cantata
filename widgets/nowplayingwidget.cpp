@@ -161,9 +161,9 @@ PosSlider::PosSlider(QWidget *p)
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::NoFocus);
     setStyle(new PosSliderProxyStyle());
-    int h=qMax((int)(fontMetrics().height()*0.5), 8);
-    setMinimumHeight(h);
-    setMaximumHeight(h);
+    //int h=qMax((int)(fontMetrics().height()*0.5), 8);
+    //setMinimumHeight(h);
+    //setMaximumHeight(h);
     setMouseTracking(true);
 }
 
@@ -520,7 +520,7 @@ void NowPlayingWidget::initColors()
     track->setPalette(pal);
     artist->setPalette(pal);
     time->setPalette(pal);
-    slider->updateStyleSheet(col);
+    //slider->updateStyleSheet(col);
     ratingWidget->setColor(col);
     infoLabel->setPalette(pal);
 }
