@@ -97,7 +97,7 @@ public:
     static const QChar constRangeSep;
     static const QChar constKeyValSep;
 
-    RulesPlaylists(int icon, const QString &dir);
+    RulesPlaylists(const QString &icon, const QString &dir);
     ~RulesPlaylists() override { }
 
     virtual QString name() const =0;
