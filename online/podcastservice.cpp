@@ -424,7 +424,7 @@ PodcastService::PodcastService()
     , rssUpdateTimer(nullptr)
 {
     QMetaObject::invokeMethod(this, "loadAll", Qt::QueuedConnection);
-    icn=MonoIcon::icon(FontAwesome::rsssquare, Utils::monoIconColor());
+    icn=QIcon::fromTheme("podcast");
     useCovers(name(), true);
     clearPartialDownloads();
     connect(MPDConnection::self(), SIGNAL(currentSongUpdated(const Song &)), this, SLOT(currentMpdSong(const Song &)));
