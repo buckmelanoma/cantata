@@ -107,10 +107,10 @@ QString RulesPlaylists::orderName(Order order)
     }
 }
 
-RulesPlaylists::RulesPlaylists(int icon, const QString &dir)
+RulesPlaylists::RulesPlaylists(const QString &icon, const QString &dir)
     : rulesDir(dir)
 {
-    icn=MonoIcon::icon((FontAwesome::icon)icon, Utils::monoIconColor());
+    icn=QIcon::fromTheme(icon);
     loadLocal();
 }
 
