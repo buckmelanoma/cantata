@@ -29,7 +29,7 @@
 GLOBAL_STATIC(SmartPlaylists, instance)
 
 SmartPlaylists::SmartPlaylists()
-    : RulesPlaylists(FontAwesome::graduationcap, "smart")
+    : RulesPlaylists("autocorrection", "smart")
 {
 }
 
