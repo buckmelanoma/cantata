@@ -308,9 +308,9 @@ void ArtistView::handleSimilarReply()
 void ArtistView::setBio()
 {
     QString html=pic+"<br>"+biography;
-    if (!similarArtists.isEmpty()) {
-        html+=similarArtists;
-    }
+    //if (!similarArtists.isEmpty()) {
+    //    html+=similarArtists;
+    //}
 
     if (albums.isEmpty()) {
         getArtistAlbums();
