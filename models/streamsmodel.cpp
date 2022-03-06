@@ -482,7 +482,7 @@ StreamsModel::StreamsModel(QObject *parent)
     , root(new CategoryItem(QString(), "root"))
 {
     QColor col = Utils::monoIconColor();
-    icn=MonoIcon::icon(":radio.svg", col);
+    icn=QIcon::fromTheme("library-internet-radio");
     tuneIn=new CategoryItem(constRadioTimeUrl+QLatin1String("?locale=")+QLocale::system().name(), tr("TuneIn"), root, MonoIcon::icon(":tunein.svg", col), QString(), "tunein");
     tuneIn->supportsBookmarks=true;
     root->children.append(tuneIn);
