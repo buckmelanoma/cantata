@@ -119,7 +119,7 @@ LibraryPage::LibraryPage(QWidget *p)
     #endif // TAGLIB_FOUND
     connect(view, SIGNAL(updateToPlayQueue(QModelIndex,bool)), this, SLOT(updateToPlayQueue(QModelIndex,bool)));
     view->setOpenAfterSearch(SqlLibraryModel::T_Album!=MpdLibraryModel::self()->topLevel());
-    view->setInfoText(tr("No music? Looks like your MPD is not configured correctly."));
+    view->setInfoText(tr("No items matching the search"));
 
     for (QAction *act: viewAction->menu()->actions()) {
         if (ItemView::Mode_Categorized==act->property(constValProp).toInt()) {
