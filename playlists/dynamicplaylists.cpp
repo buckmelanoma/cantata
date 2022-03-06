@@ -126,7 +126,7 @@ const QString constOk=QLatin1String("0");
 const QString constFilename=QLatin1String("FILENAME:");
 
 DynamicPlaylists::DynamicPlaylists()
-    : RulesPlaylists(FontAwesome::random, "dynamic")
+    : RulesPlaylists("media-playlist-shuffle", "dynamic")
     , localTimer(nullptr)
     , usingRemote(false)
     , remoteTimer(nullptr)
