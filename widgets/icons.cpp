@@ -99,8 +99,8 @@ Icons::Icons()
     addIcon=QIcon::fromTheme("edit-add");
     addBookmarkIcon=MonoIcon::icon(FontAwesome::bookmark, stdColor);
     audioListIcon=QIcon::fromTheme("audio-card-symbolic");
-    playlistListIcon=MonoIcon::icon(FontAwesome::list, stdColor);
-    smartPlaylistIcon=MonoIcon::icon(FontAwesome::graduationcap, stdColor);
+    playlistListIcon=QIcon::fromTheme("media-playlist-play");
+    smartPlaylistIcon=QIcon::fromTheme("autocorrection");
     rssListIcon=MonoIcon::icon(FontAwesome::rss, stdColor);
     savedRssListIcon=MonoIcon::icon(FontAwesome::rsssquare, stdColor);
     clockIcon=MonoIcon::icon(FontAwesome::clocko, stdColor);
