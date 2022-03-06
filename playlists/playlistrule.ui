@@ -72,7 +72,11 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="CompletionCombo" name="similarArtistsText"/>
+      <widget class="CompletionCombo" name="similarArtistsText">
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="BuddyLabel" name="label_2">
@@ -85,7 +89,11 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="CompletionCombo" name="albumArtistText"/>
+      <widget class="CompletionCombo" name="albumArtistText">
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+       </property>
+      </widget>
      </item>
      <item row="4" column="0">
       <widget class="BuddyLabel" name="composerLabel">
