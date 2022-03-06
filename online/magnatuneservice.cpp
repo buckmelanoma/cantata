@@ -158,7 +158,7 @@ static MagnatuneService::DownloadType toDownloadType(const QString &f)
 MagnatuneService::MagnatuneService(QObject *p)
     : OnlineDbService(new OnlineDb(constName, p), p)
 {
-    icn=MonoIcon::icon(":magnatune.svg", Utils::monoIconColor());
+    icn=QIcon::fromTheme("magnatune");
     useCovers(name());
     Configuration cfg(constName);
     membership=toMembership(cfg.get("membership", membershipStr(MB_None)));
