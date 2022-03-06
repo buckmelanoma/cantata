@@ -240,7 +240,7 @@ MainWindow::MainWindow(QWidget *parent)
         topToolBar->ensurePolished();
         toolbar=topToolBar;
     } else {
-        toolbar->setFixedHeight(qMax(54, (int)(fontMetrics().height()*3.25)+(toolbarLayout->spacing()*3)+(vSpace*2)));
+        toolbar->setFixedHeight(qMax(54, (int)(fontMetrics().height()*3.55)+(toolbarLayout->spacing()*3)+(vSpace*2)));
     }
     #endif
 
