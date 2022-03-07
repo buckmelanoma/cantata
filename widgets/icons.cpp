@@ -64,7 +64,7 @@ Icons::Icons()
     albumIconSmall.addFile(":album32.svg");
     albumIconLarge.addFile(":album.svg");
     albumMonoIcon=MonoIcon::icon(":mono-album.svg", stdColor);
-    artistIcon=QIcon::fromTheme("view-media-artist");
+    artistIcon=QIcon::fromTheme("folder-image-people");
     genreIcon=QIcon::fromTheme("view-media-genre");
     #if defined Q_OS_MAC || defined Q_OS_WIN
     appIcon.addFile(":cantata.svg");
