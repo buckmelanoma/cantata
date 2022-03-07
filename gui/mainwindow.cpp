@@ -281,7 +281,7 @@ MainWindow::MainWindow(QWidget *parent)
     refreshDbAction = ActionCollection::get()->createAction("refresh", tr("Refresh Database"), QIcon::fromTheme("view-refresh"));
     doDbRefreshAction = new Action(refreshDbAction->icon(), tr("Refresh"), this);
     refreshDbAction->setEnabled(false);
-    connectAction = new Action(Icons::self()->connectIcon, tr("Connect"), this);
+    connectAction = new Action(QIcon::fromTheme("notification-network-ethernet-connected"), tr("Connect"), this);
     connectionsAction = new Action(QIcon::fromTheme("library-music"), tr("Collection"), this);
     partitionsAction = new Action(QIcon::fromTheme("split"), tr("Partitions"), this);
     outputsAction = new Action(QIcon::fromTheme("audio-speakers"), tr("Outputs"), this);
