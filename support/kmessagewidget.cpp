@@ -55,7 +55,7 @@ void KMsgWidgetPrivate::init(KMsgWidget *q_ptr)
     textLabel->setOpenExternalLinks(true);
 
     QAction* closeAction = new QAction(q);
-    closeAction->setIcon(MonoIcon::icon(FontAwesome::close, MonoIcon::constRed, MonoIcon::constRed));
+    closeAction->setIcon(QIcon::fromTheme("dialog-close"));
     closeAction->setToolTip(QObject::tr("Close"));
     QObject::connect(closeAction, SIGNAL(triggered()), q, SLOT(animatedHide()));
 
