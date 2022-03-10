@@ -100,11 +100,11 @@ bool CoverLabel::event(QEvent *event)
         lastTtPos=static_cast<QHelpEvent *>(event)->globalPos();
         updateToolTip(true);
         break;
-    case QEvent::MouseButtonPress:
-        if (Qt::LeftButton==static_cast<QMouseEvent *>(event)->button() && Qt::NoModifier==static_cast<QMouseEvent *>(event)->modifiers()) {
-            pressed=true;
-        }
-        break;
+    //case QEvent::MouseButtonPress:
+    //    if (Qt::LeftButton==static_cast<QMouseEvent *>(event)->button() && Qt::NoModifier==static_cast<QMouseEvent *>(event)->modifiers()) {
+    //        pressed=true;
+    //    }
+    //    break;
     case QEvent::MouseButtonRelease:
         if (pressed && Qt::LeftButton==static_cast<QMouseEvent *>(event)->button() && !QApplication::overrideCursor()) {
             static_cast<CoverWidget*>(parentWidget())->emitClicked();
