@@ -258,6 +258,7 @@ void InterfaceSettings::load()
     forceSingleClick->setChecked(Settings::self()->forceSingleClick());
     infoTooltips->setChecked(Settings::self()->infoTooltips());
     showStopButton->setChecked(Settings::self()->showStopButton());
+    showVolumeSlider->setChecked(Settings::self()->showVolumeSlider());
     showCoverWidget->setChecked(Settings::self()->showCoverWidget());
     showRatingWidget->setChecked(Settings::self()->showRatingWidget());
     showTechnicalInfo->setChecked(Settings::self()->showTechnicalInfo());
@@ -346,6 +347,7 @@ void InterfaceSettings::save()
     Settings::self()->saveForceSingleClick(forceSingleClick->isChecked());
     Settings::self()->saveInfoTooltips(infoTooltips->isChecked());
     Settings::self()->saveShowStopButton(showStopButton->isChecked());
+    Settings::self()->saveShowVolumeSlider(showVolumeSlider->isChecked());
     Settings::self()->saveShowCoverWidget(showCoverWidget->isChecked());
     Settings::self()->saveShowRatingWidget(showRatingWidget->isChecked());
     Settings::self()->saveShowTechnicalInfo(showTechnicalInfo->isChecked());
