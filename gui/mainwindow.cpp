@@ -2874,11 +2874,6 @@ void MainWindow::controlView(bool forceUpdate)
             stopTrackButton->setVisible(stopEnabled);
         }
 
-        // disable volume control
-        volumeSlider->setVisible(false);
-        volumeSliderSpacer->changeSize(-1,-1);
-        volumeSliderSpacera->changeSize(-1,-1);
-
 	if (!volumeEnabled) {
 		volumeSlider->setVisible(false);
 		volumeSliderSpacer->changeSize(-1,-1);
