@@ -2875,11 +2875,11 @@ void MainWindow::controlView(bool forceUpdate)
         }
 
 	if (!volumeEnabled) {
-		volumeSlider->setVisible(false);
-		volumeSliderSpacer->changeSize(-1,-1);
+	     volumeSlider->setVisible(false);
+	     volumeSliderSpacer->changeSize(-1,-1);
 	} else {
-		volumeSlider->setVisible(true);
-		volumeSliderSpacer->changeSize(4,4);
+	     volumeSlider->setVisible(true);
+	     volumeSliderSpacer->changeSize(4,4);
 	}
 
         if (expandInterfaceAction->isChecked() && (responsiveSidebar || forceUpdate)) {
