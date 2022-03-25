@@ -41,7 +41,7 @@ ProxyStyle::ProxyStyle(int modView)
 {
     icons.insert(SP_LineEditClearButton, MonoIcon::icon(FontAwesome::timescircle, QColor(128, 128, 128), QColor(128, 128, 128)));
     icons.insert(SP_MessageBoxCritical, MonoIcon::icon(FontAwesome::timescircleo, MonoIcon::constRed, MonoIcon::constRed));
-    icons.insert(SP_MessageBoxWarning, MonoIcon::icon(FontAwesome::exclamationtriangle, QColor(0xff, 0x99, 0x00), QColor(0xff, 0x99, 0x00)));
+    icons.insert(SP_MessageBoxWarning, QIcon::fromTheme("dialog-warning"));
     icons.insert(SP_MessageBoxQuestion, MonoIcon::icon(FontAwesome::questioncircle, QColor(0x1a, 0x8c, 0xff), QColor(0x1a, 0x8c, 0xff)));
     icons.insert(SP_MessageBoxInformation, QIcon::fromTheme("dialog-information"));
 
