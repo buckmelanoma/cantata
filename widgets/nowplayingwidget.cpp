@@ -197,6 +197,9 @@ void PosSlider::mouseMoveEvent(QMouseEvent *e)
 {
     if (maximum()!=minimum()) {
         qreal pc = (qreal)e->pos().x()/(qreal)width();
+        // clamp position to [0, 1]
+        if (pc < 0) pc = 0;
+        if (pc > 1) pc = 1;
         QPoint pos(e->pos().x(), height());
         QToolTip::showText(mapToGlobal(pos), Utils::formatTime(maximum()*pc), this, rect());
     }
